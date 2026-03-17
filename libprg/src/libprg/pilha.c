@@ -20,7 +20,9 @@ pilha_t* criar_pilha(int capacidade) {
   return pilha;
 }
 
+// PRÓXIMA AULA:
 // empilhar
 // desempilhar
 // tamanho
 // vazia
+// destruir_pilha
