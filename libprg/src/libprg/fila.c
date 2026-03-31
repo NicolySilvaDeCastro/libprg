@@ -33,13 +33,42 @@ void enfileirar(fila_t* fila, int valor) {
     fila->tamanho++;
 
 }
+int desenfileirar(fila_t* fila) {
 
-// desenfileirar
-// inicio //retornar elemento no inicio
-// fim //retornar elemento no fim
-// vazia //tamanho = 0
-// cheia //tamanho = 0
-//
+    if (fila->tamanho>0) {
+        fila->fim = fila->fim - 1;
+    }
+    return 0;
+}
+
+
+//retornar elemento no inicio
+int inicio(fila_t* fila) {
+
+    return fila->elementos[fila->inicio];
+
+}
+
+
+//retornar elemento no fim
+int fim(fila_t* fila) {
+
+    return fila->elementos[fila->fim];
+}
+
+
+int vazia_pilha(fila_t* fila) {
+
+    if (fila->tamanho==0) return 1;
+    return 0;
+
+}
+
+int cheia(fila_t* fila) {
+    if (fila->tamanho == fila->capacidade) return 1;
+  return 0;
+}
+
 
 int destruir_fila(fila_t* fila) {
     free(fila->elementos);

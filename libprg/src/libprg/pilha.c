@@ -59,7 +59,7 @@ int tamanho(pilha_t* pilha) {
 }
 
 
- int vazia(pilha_t* pilha) {
+ int vazia_pilha(pilha_t* pilha) {
   return pilha->topo < 0;
 
   /*if (pilha->topo < 0) {return 1;}
