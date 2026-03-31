@@ -1,7 +1,7 @@
 //
 // Created by aluno on 26/03/2026.
 //
-
+#include "libprg//libprg.h" //para chamar a função cheia que está sendo utilizada no enfileirar
 #include <stdlib.h>
 
 typedef struct fila {
@@ -25,7 +25,7 @@ fila_t* criar_fila(int capacidade) {
 }
 
 void enfileirar(fila_t* fila, int valor) {
-
+    if (vazia_fila(fila)) exit(EXIT_FAILURE);
     if (fila->tamanho >= fila->capacidade) exit(EXIT_FAILURE);
 
     fila->elementos[fila->fim] = valor;
@@ -34,17 +34,19 @@ void enfileirar(fila_t* fila, int valor) {
 
 }
 int desenfileirar(fila_t* fila) {
+    if (vazia_fila(fila)) exit(EXIT_FAILURE);//"Falhe cedo"
+    int valor = fila->elementos[fila->inicio];
 
-    if (fila->tamanho>0) {
-        fila->fim = fila->fim - 1;
-    }
-    return 0;
+    fila->inicio = (fila->inicio + 1) % fila->capacidade;
+    fila->tamanho--;
+    return valor;
 }
 
 
 //retornar elemento no inicio
 int inicio(fila_t* fila) {
 
+    if (vazia_fila(fila)) exit(EXIT_FAILURE);
     return fila->elementos[fila->inicio];
 
 }
@@ -52,22 +54,31 @@ int inicio(fila_t* fila) {
 
 //retornar elemento no fim
 int fim(fila_t* fila) {
-
+    if (vazia_fila(fila)) exit(EXIT_FAILURE);
+    int fim_corrigido = fila->fim - 1;
+    if (fim_corrigido<0) {
+        fim_corrigido = fila->capacidade - 1;
+    }
     return fila->elementos[fila->fim];
+        //return fila->elementos[fila->fim];
 }
 
 
-int vazia_pilha(fila_t* fila) {
+
+int vazia_fila(fila_t* fila) {
 
     if (fila->tamanho==0) return 1;
     return 0;
 
 }
 
+
+
 int cheia(fila_t* fila) {
     if (fila->tamanho == fila->capacidade) return 1;
   return 0;
 }
+
 
 
 int destruir_fila(fila_t* fila) {
