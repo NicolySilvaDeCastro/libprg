@@ -1,5 +1,6 @@
 #ifndef LIBPRG_LIBPRG_H
 #define LIBPRG_LIBPRG_H
+#include <stdbool.h>
 
 
 /* ============= PILHA ============= */
@@ -22,4 +23,10 @@ int vazia_fila(fila_t* fila);
 int cheia(fila_t* fila);
 int destruir_fila(fila_t* fila);
 
+/* ============= LISTA ============= */
+typedef struct lista_linear lista_linear_t;
+lista_linear_t* criar_lista(bool ordenada);
+
+//protótipo/assinatura(entrada, nome e saída da função);
 #endif
+

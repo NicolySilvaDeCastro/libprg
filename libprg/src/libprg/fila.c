@@ -5,36 +5,34 @@
 #include <stdlib.h>
 
 typedef struct fila {
-    int* elementos;
+    int *elementos;
     int inicio;
     int fim;
     int tamanho;
     int capacidade;
+} fila_t;
 
-}fila_t;
 
-
-fila_t* criar_fila(int capacidade) {
-
-    fila_t* fila = malloc(sizeof(fila_t)); //aloca capacidade
+fila_t *criar_fila(int capacidade) {
+    fila_t *fila = malloc(sizeof(fila_t)); //aloca capacidade
     fila->elementos = malloc(sizeof(int) * capacidade); //
-    fila-> inicio = 0;
+    fila->inicio = 0;
     fila->fim = 0;
     fila->capacidade = capacidade;
     return fila;
 }
 
-void enfileirar(fila_t* fila, int valor) {
+void enfileirar(fila_t *fila, int valor) {
     if (vazia_fila(fila)) exit(EXIT_FAILURE);
     if (fila->tamanho >= fila->capacidade) exit(EXIT_FAILURE);
 
     fila->elementos[fila->fim] = valor;
-    fila->fim = (fila->fim + 1) % fila-> capacidade;
+    fila->fim = (fila->fim + 1) % fila->capacidade;
     fila->tamanho++;
-
 }
-int desenfileirar(fila_t* fila) {
-    if (vazia_fila(fila)) exit(EXIT_FAILURE);//"Falhe cedo"
+
+int desenfileirar(fila_t *fila) {
+    if (vazia_fila(fila)) exit(EXIT_FAILURE); //"Falhe cedo"
     int valor = fila->elementos[fila->inicio];
 
     fila->inicio = (fila->inicio + 1) % fila->capacidade;
@@ -44,44 +42,37 @@ int desenfileirar(fila_t* fila) {
 
 
 //retornar elemento no inicio
-int inicio(fila_t* fila) {
-
+int inicio(fila_t *fila) {
     if (vazia_fila(fila)) exit(EXIT_FAILURE);
     return fila->elementos[fila->inicio];
-
 }
 
 
 //retornar elemento no fim
-int fim(fila_t* fila) {
+int fim(fila_t *fila) {
     if (vazia_fila(fila)) exit(EXIT_FAILURE);
     int fim_corrigido = fila->fim - 1;
-    if (fim_corrigido<0) {
+    if (fim_corrigido < 0) {
         fim_corrigido = fila->capacidade - 1;
     }
     return fila->elementos[fila->fim];
-        //return fila->elementos[fila->fim];
+    //return fila->elementos[fila->fim];
 }
 
 
-
-int vazia_fila(fila_t* fila) {
-
-    if (fila->tamanho==0) return 1;
+int vazia_fila(fila_t *fila) {
+    if (fila->tamanho == 0) return 1;
     return 0;
-
 }
 
 
-
-int cheia(fila_t* fila) {
+int cheia(fila_t *fila) {
     if (fila->tamanho == fila->capacidade) return 1;
-  return 0;
+    return 0;
 }
 
 
-
-int destruir_fila(fila_t* fila) {
+int destruir_fila(fila_t *fila) {
     free(fila->elementos);
     free(fila);
     return 0;

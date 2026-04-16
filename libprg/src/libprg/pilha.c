@@ -6,14 +6,13 @@
 #include <stdlib.h>
 
 typedef struct pilha {
-  int* elementos;
+  int *elementos;
   int topo;
   int capacidade;
-}pilha_t; // _t é uma convenção do C
+} pilha_t; // _t é uma convenção do C
 
-pilha_t* criar_pilha(int capacidade) {
-
-  pilha_t* pilha = malloc(sizeof(pilha_t));
+pilha_t *criar_pilha(int capacidade) {
+  pilha_t *pilha = malloc(sizeof(pilha_t));
   pilha->elementos = malloc(sizeof(int) * capacidade);
   pilha->topo = -1;
   pilha->capacidade = capacidade;
@@ -21,11 +20,11 @@ pilha_t* criar_pilha(int capacidade) {
   return pilha;
 }
 
-int empilhar( pilha_t* pilha, int valor) {
-
-  if (pilha->topo+1 >= pilha->capacidade) { //aumentar capacidade
+int empilhar(pilha_t *pilha, int valor) {
+  if (pilha->topo + 1 >= pilha->capacidade) {
+    //aumentar capacidade
     pilha->capacidade *= 2;
-    pilha->elementos = realloc (pilha->elementos, pilha->capacidade*sizeof(int));
+    pilha->elementos = realloc(pilha->elementos, pilha->capacidade * sizeof(int));
   }
 
   pilha->topo++;
@@ -35,10 +34,9 @@ int empilhar( pilha_t* pilha, int valor) {
 }
 
 
-int desempilhar(pilha_t* pilha){
-
+int desempilhar(pilha_t *pilha) {
   if (pilha->topo < 0) {
-    exit (EXIT_FAILURE);
+    exit(EXIT_FAILURE);
   }
 
   int valor = pilha->elementos[pilha->topo];
@@ -50,25 +48,24 @@ int desempilhar(pilha_t* pilha){
   pilha->topo--;
   printf("Valor: %d\n", valor);
   */
-return valor;
+  return valor;
 }
 
 
-int tamanho(pilha_t* pilha) {
-  return pilha->topo+1;
+int tamanho(pilha_t *pilha) {
+  return pilha->topo + 1;
 }
 
 
- int vazia_pilha(pilha_t* pilha) {
+int vazia_pilha(pilha_t *pilha) {
   return pilha->topo < 0;
 
   /*if (pilha->topo < 0) {return 1;}
   return 0;*/
 }
 
-int destruir_pilha(pilha_t* pilha) {
-
-  free(pilha->elementos);//liberar primeiro o que está encapsulado para não dar erro
+int destruir_pilha(pilha_t *pilha) {
+  free(pilha->elementos); //liberar primeiro o que está encapsulado para não dar erro
   free(pilha);
   return 0;
 }
