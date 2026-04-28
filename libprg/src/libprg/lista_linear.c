@@ -46,4 +46,4 @@ lista_linear_t* remover(lista_linear_t *lista, int alvo) {
 //alterar
 //ordenar
 //combinar
-//destruit
+//destruir

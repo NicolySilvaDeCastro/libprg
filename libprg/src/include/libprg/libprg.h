@@ -23,9 +23,14 @@ int vazia_fila(fila_t* fila);
 int cheia(fila_t* fila);
 int destruir_fila(fila_t* fila);
 
-/* ============= LISTA ============= */
+/* ============= LISTA LINEAR ============= */
 typedef struct lista_linear lista_linear_t;
 lista_linear_t* criar_lista(bool ordenada);
+
+/* ============= LISTA ENCADEADA ============= */
+typedef struct no no_t;
+no_t* criar_lista_encadeada(int dado);
+void inserir_encadeada(no_t** inicio, int dado);
 
 //protótipo/assinatura(entrada, nome e saída da função);
 #endif
