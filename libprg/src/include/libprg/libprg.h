@@ -29,8 +29,10 @@ lista_linear_t* criar_lista(bool ordenada);
 
 /* ============= LISTA ENCADEADA ============= */
 typedef struct no no_t;
+typedef struct nod nod_t;
 no_t* criar_lista_encadeada(int dado);
 void inserir_encadeada(no_t** inicio, int dado);
+no_t* buscar_lista_encadeada(no_t** inicio, int dado);
 
 //protótipo/assinatura(entrada, nome e saída da função);
 #endif
