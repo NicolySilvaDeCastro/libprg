@@ -29,10 +29,21 @@ lista_linear_t* criar_lista(bool ordenada);
 
 /* ============= LISTA ENCADEADA ============= */
 typedef struct no no_t;
+typedef struct lista_encadeada lista_encadeada_t;
+//no_t* criar_no(int dado); //a própria lista cria o nó
+void inserir_encadeada(lista_encadeada_t* lista, int dado);
+no_t* buscar_lista_encadeada(lista_encadeada_t* lista, int dado);
+bool remover_lista_encadeada(lista_encadeada_t* lista, int dado);
+void destruir_encadeada(lista_encadeada_t* lista);
+
+/* ============= LISTA ENCADEADA DUPLA ============= */
 typedef struct nod nod_t;
-no_t* criar_lista_encadeada(int dado);
-void inserir_encadeada(no_t** inicio, int dado);
-no_t* buscar_lista_encadeada(no_t** inicio, int dado);
+nod_t* criar_encadeada_dupla(int dado);
+void inserir_encadeada_dupla(no_t** inicio, int dado);
+no_t* buscar_lista_encadeada_dupla(nod_t** inicio, int dado);
+bool remover_lista_encadeada_dupla(no_t** inicio, int dado);
+void destruir_encadeada_dupla(nod_t* inicio);
+
 
 //protótipo/assinatura(entrada, nome e saída da função);
 #endif
