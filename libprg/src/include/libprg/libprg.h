@@ -44,6 +44,12 @@ no_t* buscar_lista_encadeada_dupla(nod_t** inicio, int dado);
 bool remover_lista_encadeada_dupla(no_t** inicio, int dado);
 void destruir_encadeada_dupla(nod_t* inicio);
 
+/* ============= ALGORITMOS DE ORDENAÇÃO ============= */
+//BUBLE
+//MERGE
+
+/* ============= HASH ============= */
+typedef struct noh noh_t;
 
 //protótipo/assinatura(entrada, nome e saída da função);
 #endif
