@@ -51,6 +51,13 @@ void destruir_encadeada_dupla(nod_t* inicio);
 /* ============= HASH ============= */
 typedef struct noh noh_t;
 
+/* ============= ÁRVORE ============= */
+typedef struct noarv noarv_t;
+noarv_t* criar_noarv(int dado);
+noarv_t* adicionar_arvore(noarv_t* raiz, int dado);
+bool remover_arvore(noarv_t** inicio, int dado);
+void destruir_arvore(noarv_t* inicio);
+
 //protótipo/assinatura(entrada, nome e saída da função);
 #endif
 
